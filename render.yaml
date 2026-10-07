@@ -14,10 +14,6 @@ services:
       - key: NEXTAUTH_SECRET
         generateValue: true
       - key: DATABASE_URL
-        value: /var/data/whink-bet.db
+        value: /tmp/whink-bet.db
       - key: NEXT_PUBLIC_APP_URL
         value: https://whink-bet.onrender.com
-    disk:
-      name: whink-data
-      mountPath: /var/data
-      sizeGB: 1
