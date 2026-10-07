@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String?
+  plan          String    @default("free") // free | premium
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  predictions   UserPrediction[]
+  subscription  Subscription?
+}
+
+model Subscription {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  plan      String   // free | premium
+  status    String   // active | cancelled | expired
+  startDate DateTime @default(now())
+  endDate   DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Match {
+  id             String   @id @default(cuid())
+  externalId     String   @unique
+  homeTeam       String
+  awayTeam       String
+  homeTeamLogo   String?
+  awayTeamLogo   String?
+  league         String
+  leagueLogo     String?
+  country        String
+  matchDate      DateTime
+  status         String   @default("upcoming") // upcoming | live | finished
+  homeScore      Int?
+  awayScore      Int?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  prediction     Prediction?
+}
+
+model Prediction {
+  id              String   @id @default(cuid())
+  matchId         String   @unique
+  match           Match    @relation(fields: [matchId], references: [id])
+  prediction      String   // 1X2, BTTS, Over2.5, etc.
+  confidence      Int      // 0-100
+  tier            String   // optimal | high | watching
+  reasoning       String
+  odds            Float?
+  result          String?  // pending | won | lost
+  isPremium       Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  userPredictions UserPrediction[]
+}
+
+model UserPrediction {
+  id           String     @id @default(cuid())
+  userId       String
+  user         User       @relation(fields: [userId], references: [id])
+  predictionId String
+  prediction   Prediction @relation(fields: [predictionId], references: [id])
+  tracked      Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+}
