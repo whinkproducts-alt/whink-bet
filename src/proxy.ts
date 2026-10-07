@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 const PROTECTED = ['/dashboard']
 const AUTH_ROUTES = ['/login', '/register']
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
   const token = req.cookies.get('whink_session')?.value
 
