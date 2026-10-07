@@ -2,7 +2,7 @@ import Database from 'better-sqlite3'
 import path from 'path'
 import fs from 'fs'
 
-const DB_PATH = path.join(process.cwd(), 'whink-bet.db')
+const DB_PATH = process.env.DATABASE_URL || path.join(process.cwd(), 'whink-bet.db')
 
 let db: Database.Database
 

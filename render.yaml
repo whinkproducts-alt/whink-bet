@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: whink-bet
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_APP_NAME
+        value: WHINK Bet
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        value: /var/data/whink-bet.db
+      - key: NEXT_PUBLIC_APP_URL
+        value: https://whink-bet.onrender.com
+    disk:
+      name: whink-data
+      mountPath: /var/data
+      sizeGB: 1
