@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "eslint",
-    "postinstall": "prisma skills sync || exit 0"
+    "lint": "eslint"
   },
   "dependencies": {
     "@types/better-sqlite3": "^9.6.0",
