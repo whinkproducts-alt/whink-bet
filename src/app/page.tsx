@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '@/components/marketing/Navbar'
 import PredictionCard from '@/components/ui/PredictionCard'
 import {
@@ -128,13 +129,13 @@ export default function HomePage() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-              }}>Smarter.</span>
-              <span className="block text-white">Win Bigger.</span>
+              }}>Better.</span>
+              <span className="block text-white">Win Together.</span>
             </h1>
 
             <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              WhinkPredict delivers elite AI sports predictions with 90%+ confidence.
-              Powered by Whink Group&apos;s intelligence engine. Built for winners.
+              Join thousands of fans celebrating real wins — powered by elite AI sports predictions with 90%+ confidence.
+              Live games, live data, live analytics. <strong className="text-white">Built for every winner.</strong>
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -267,42 +268,37 @@ export default function HomePage() {
 
             {/* Right: Naye avatar card */}
             <div className="relative">
-              <div className="naye-card p-8 rounded-3xl relative overflow-hidden">
+              <div className="naye-card p-6 rounded-3xl relative overflow-hidden">
                 {/* Glow bg */}
                 <div className="absolute inset-0 opacity-40"
                   style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(0,229,160,0.3), transparent 60%)' }} />
                 <div className="absolute inset-0 opacity-20"
                   style={{ background: 'radial-gradient(ellipse at 70% 80%, rgba(56,182,255,0.4), transparent 60%)' }} />
 
-                {/* Naye visual representation */}
-                <div className="relative z-10 text-center">
-                  {/* Animated W mark */}
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full flex items-center justify-center relative"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(0,229,160,0.15), rgba(56,182,255,0.15))',
-                      border: '2px solid rgba(0,229,160,0.4)',
-                      boxShadow: '0 0 40px rgba(0,229,160,0.3)',
-                    }}>
-                    {/* Animated pulse rings */}
-                    <div className="absolute inset-0 rounded-full animate-ping opacity-20"
-                      style={{ border: '2px solid #00E5A0', animationDuration: '2s' }} />
-                    <div className="absolute -inset-3 rounded-full animate-ping opacity-10"
-                      style={{ border: '1px solid #00E5A0', animationDuration: '2.5s', animationDelay: '0.5s' }} />
-
-                    <span className="text-6xl font-black" style={{
-                      background: 'linear-gradient(135deg, #00E5A0, #38B6FF)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}>N</span>
+                <div className="relative z-10">
+                  {/* Naye character image */}
+                  <div className="flex flex-col items-center mb-5">
+                    <div className="relative">
+                      {/* Animated glow ring behind image */}
+                      <div className="absolute inset-0 rounded-2xl animate-pulse"
+                        style={{ background: 'radial-gradient(ellipse, rgba(0,229,160,0.25), transparent 70%)', filter: 'blur(16px)' }} />
+                      <Image
+                        src="/brand/naye.png"
+                        alt="Naye — WhinkPredict AI"
+                        width={220}
+                        height={280}
+                        className="relative z-10 mx-auto"
+                        style={{ objectFit: 'contain', maxHeight: 260 }}
+                      />
+                    </div>
+                    <div className="text-xl font-black text-white mt-3 mb-0.5">Naye</div>
+                    <div className="text-xs font-semibold" style={{ color: '#00E5A0' }}>
+                      AI Prediction Mascot · WhinkPredict
+                    </div>
                   </div>
 
-                  <div className="text-2xl font-black text-white mb-1">Naye</div>
-                  <div className="text-sm font-semibold mb-6"
-                    style={{ color: '#00E5A0' }}>AI Prediction Mascot · WhinkPredict</div>
-
                   {/* Sample pick cards */}
-                  <div className="space-y-3">
+                  <div className="space-y-2.5">
                     {[
                       { sport: '⚽ Football', pick: 'Real Madrid — WIN', conf: '94%' },
                       { sport: '🏀 Basketball', pick: 'Lakers — O210.5', conf: '91%' },
@@ -322,7 +318,7 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  <div className="mt-4 text-xs text-slate-600 font-semibold">
+                  <div className="mt-4 text-xs text-slate-600 font-semibold text-center">
                     Refreshes Friday 0:00 AM · Next refresh in <span className="text-slate-400">3 days</span>
                   </div>
                 </div>
@@ -672,11 +668,12 @@ export default function HomePage() {
               </ul>
             </div>
             <div>
-              <div className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">Whink Group</div>
+              <div className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">Legal</div>
               <ul className="space-y-2">
-                {['Whink Group', 'Whink Apps', 'About WhinkPredict', 'Contact', 'Privacy Policy'].map(l => (
-                  <li key={l}><a href="#" className="text-sm text-slate-400 hover:text-slate-200 transition-colors">{l}</a></li>
-                ))}
+                <li><Link href="/legal" className="text-sm text-slate-400 hover:text-slate-200 transition-colors">Terms of Service</Link></li>
+                <li><Link href="/legal/privacy" className="text-sm text-slate-400 hover:text-slate-200 transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/legal/cookies" className="text-sm text-slate-400 hover:text-slate-200 transition-colors">Cookie Policy</Link></li>
+                <li><Link href="/legal/refund" className="text-sm text-slate-400 hover:text-slate-200 transition-colors">Refund Policy</Link></li>
               </ul>
               <div className="mt-4 text-sm text-slate-500">support@whinkpredict.com</div>
             </div>
@@ -685,8 +682,19 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6"
             style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
             <div className="text-xs text-slate-600">© 2026 WhinkPredict · A Whink Apps Product by Whink Group. All rights reserved.</div>
-            <div className="text-xs text-slate-700 text-center">
-              ⚠️ WhinkPredict is for informational purposes only. Bet responsibly.
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="text-xs text-slate-700 text-center">
+                ⚠️ WhinkPredict is for informational purposes only. Bet responsibly.
+              </div>
+              <div className="flex items-center gap-3 text-xs text-slate-600">
+                <Link href="/legal" className="hover:text-slate-400 transition-colors">Terms</Link>
+                <span>·</span>
+                <Link href="/legal/privacy" className="hover:text-slate-400 transition-colors">Privacy</Link>
+                <span>·</span>
+                <Link href="/legal/cookies" className="hover:text-slate-400 transition-colors">Cookies</Link>
+                <span>·</span>
+                <Link href="/legal/refund" className="hover:text-slate-400 transition-colors">Refunds</Link>
+              </div>
             </div>
           </div>
         </div>
