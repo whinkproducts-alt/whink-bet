@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: whink-bet
+    name: whinkpredict
     runtime: node
     region: oregon
     plan: free
@@ -10,10 +10,10 @@ services:
       - key: NODE_ENV
         value: production
       - key: NEXT_PUBLIC_APP_NAME
-        value: WHINK Bet
+        value: WhinkPredict
       - key: NEXTAUTH_SECRET
         generateValue: true
       - key: DATABASE_URL
-        value: /tmp/whink-bet.db
+        value: /tmp/whinkpredict.db
       - key: NEXT_PUBLIC_APP_URL
-        value: https://whink-bet.onrender.com
+        value: https://whinkpredict.onrender.com

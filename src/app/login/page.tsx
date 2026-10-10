@@ -48,7 +48,7 @@ export default function LoginPage() {
             <Logo size="lg" />
           </Link>
           <h1 className="text-2xl font-black mb-2">Welcome back</h1>
-          <p className="text-slate-400 text-sm">Sign in to your WHINK Bet account</p>
+          <p className="text-slate-400 text-sm">Sign in to your WhinkPredict account</p>
         </div>
 
         <div className="glass-card p-8">

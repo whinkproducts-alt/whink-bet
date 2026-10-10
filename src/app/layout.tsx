@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'WHINK Bet — AI Sports Predictions',
-  description: 'AI-powered sports betting analytics. Smarter predictions, transparent insights, verified accuracy.',
-  keywords: 'sports betting, AI predictions, football analytics, betting tips',
+  title: 'WhinkPredict — AI Sports Predictions',
+  description: 'AI-powered sports predictions by WhinkPredict. Predict Smarter. Win Bigger.',
+  keywords: 'sports predictions, AI predictions, football analytics, WhinkPredict, sports betting tips',
   openGraph: {
-    title: 'WHINK Bet — AI Sports Predictions',
-    description: 'Forecast. Win. Repeat.',
+    title: 'WhinkPredict — AI Sports Predictions',
+    description: 'Predict Smarter. Win Bigger.',
     type: 'website',
   },
 }

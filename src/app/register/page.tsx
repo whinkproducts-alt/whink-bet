@@ -56,7 +56,7 @@ export default function RegisterPage() {
             <Logo size="lg" />
           </Link>
           <h1 className="text-2xl font-black mb-2">Start winning smarter</h1>
-          <p className="text-slate-400 text-sm">Create your free WHINK Bet account</p>
+          <p className="text-slate-400 text-sm">Create your free WhinkPredict account</p>
         </div>
 
         <div className="glass-card p-8">
